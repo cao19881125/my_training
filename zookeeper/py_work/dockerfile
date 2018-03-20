@@ -1,0 +1,9 @@
+FROM centos:7
+
+RUN yum install -y epel-release && yum install -y python-pip && pip install kazoo && yum clean all
+
+COPY ./work.py /root/
+
+ENV TERM linux
+
+CMD python /root/work.py
